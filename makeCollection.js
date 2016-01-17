@@ -1,4 +1,4 @@
-/*jslint es6, multivar, browser */
+/*jslint es6, browser */
 /*globals util, window */
 /**
  *  collection
@@ -16,8 +16,8 @@ function makeCollection(initial) {
 
     'use strict';
 
-    var collection = {},
-        items = [];
+    var collection = {};
+    var items = [];
 
     // Simple helper for getting the index of an item from within the items
     // array.
@@ -89,8 +89,8 @@ function makeCollection(initial) {
      **/
     function removeItem(item) {
 
-        var index = getIndex(item),
-            exists = index > -1;
+        var index = getIndex(item);
+        var exists = index > -1;
 
         if (exists) {
             items.splice(index, 1);
@@ -102,7 +102,11 @@ function makeCollection(initial) {
 
     // Checks to see if the `index` exists in the `items` array.
     function itemExists(index) {
-        return util.Number.isNumeric(index) && util.Object.owns(items, index);
+
+        index = util.Number.toPosInt(index);
+
+        return index >= 0 && index < items.length;
+
     }
 
     /**

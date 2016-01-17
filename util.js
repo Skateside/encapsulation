@@ -1,4 +1,4 @@
-/*jslint es6, multivar, browser */
+/*jslint es6, browser */
 /*global window */
 /**
  *  util
@@ -355,11 +355,11 @@ var util = (function () {
      **/
     function camlise(string, hyphens) {
 
-        var str = String(string),
-            chars = typeof hyphens === 'string'
-                ? hyphens
-                : '-_',
-            breaker = new RegExp('[' + escapeRegExp(chars) + ']([a-z])', 'gi');
+        var str = String(string);
+        var chars = typeof hyphens === 'string'
+            ? hyphens
+            : '-_';
+        var breaker = new RegExp('[' + escapeRegExp(chars) + ']([a-z])', 'gi');
 
         return str.replace(breaker, function (ignore, start) {
             return start.toUpperCase();
@@ -391,11 +391,11 @@ var util = (function () {
      **/
     function chunk(array, size, map, context) {
 
-        var chunked = [],
-            arr = arrayFrom(array, map, context),
-            i = 0,
-            il = arr.length,
-            amount = toPosInt(size) || 1;
+        var chunked = [];
+        var arr = arrayFrom(array, map, context);
+        var i = 0;
+        var il = arr.length;
+        var amount = toPosInt(size) || 1;
 
         while (i < il) {
 
@@ -421,11 +421,11 @@ var util = (function () {
 
         Object.getOwnPropertyNames(source).forEach(function (property) {
 
-            var orig = source[property],
-                desc = Object.getOwnPropertyDescriptor(source, property),
-                value = (isArrayLike(orig) || isPlainObject(orig))
-                    ? clone(orig)
-                    : orig;
+            var orig = source[property];
+            var desc = Object.getOwnPropertyDescriptor(source, property);
+            var value = (isArrayLike(orig) || isPlainObject(orig))
+                ? clone(orig)
+                : orig;
 
             Object.defineProperty(copy, property, assign(desc, {value}));
 

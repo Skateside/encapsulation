@@ -1,4 +1,4 @@
-/*jslint es6, browser, multivar */
+/*jslint es6, browser */
 /*globals util, makeCollection, window */
 /**
  *  paginatedCollection
@@ -11,10 +11,10 @@ function makePaginatedCollection(initial) {
 
     'use strict';
 
-    var collection = makeCollection(initial),
-        pages = [],
-        pageSize = 1,
-        currentPage = 0;
+    var collection = makeCollection(initial);
+    var pages = [];
+    var pageSize = 1;
+    var currentPage = 0;
 
     // Groups the collection items into the pages.
     function createPages() {

@@ -1,4 +1,4 @@
-/*jslint es6, browser, this, multivar */
+/*jslint es6, browser, this */
 /*global util */
 /**
  *  class Access
@@ -172,9 +172,9 @@ var Access = (function () {
 
         get: function (target, name) {
 
-            var value,
-                rule = name.match(/(^([a-z]+)(\w+))/),
-                property;
+            var value;
+            var rule = name.match(/(^([a-z]+)(\w+))/);
+            var property;
 
             if (util.Object.owns(target, name)) {
                 value = target[name];

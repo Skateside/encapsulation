@@ -1,4 +1,4 @@
-/*jslint es6, browser, multivar */
+/*jslint es6, browser */
 /*globals util */
 /**
  *  access
@@ -29,8 +29,8 @@ function makeAccess(initial) {
 
     'use strict';
 
-    var access = {},
-        data = {};
+    var access = {};
+    var data = {};
 
     function decamelise(string) {
         return util.String.hyphenate(util.String.toLowerFirst(string), '_');
@@ -117,9 +117,9 @@ function makeAccess(initial) {
 
         get: function (target, name) {
 
-            var value,
-                rule = name.match(/(^([a-z]+)(\w+))/),
-                property;
+            var value;
+            var rule = name.match(/(^([a-z]+)(\w+))/);
+            var property;
 
             if (util.Object.owns(target, name)) {
                 value = target[name];

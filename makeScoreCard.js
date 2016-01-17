@@ -1,4 +1,4 @@
-/*jslint es6, browser, multivar */
+/*jslint es6, browser */
 /*global util */
 /**
  *  scoreCard
@@ -10,11 +10,11 @@ function makeScoreCard() {
 
     'use strict';
 
-    var scoreCard = {},
-        scores = [],
-        max = -Infinity,
-        min = Infinity,
-        average = 0;
+    var scoreCard = {};
+    var scores = [];
+    var max = -Infinity;
+    var min = Infinity;
+    var average = 0;
 
     /**
      *  scoreCard.addScore(score) -> scoreCard
